@@ -1,0 +1,12 @@
+{
+  "compilerOptions": { // стандартная настройка TypeScript Для его работы, компиляции
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "target": "es5",
+    "jsx": "react-jsx", // для нормальной работы реакта
+    "strict": true // строгий режим
+  },
+  "files": ["./src/index.ts"]
+}
