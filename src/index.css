@@ -1,0 +1,20 @@
+@import "normalize.css";
+
+
+@font-face {
+  font-family: 'Aelo';
+  src: url("assets/font/Aleo-Bold.ttf");
+}
+
+
+body {
+  font-family: 'Aelo', serif;
+  font-size: 16px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.container {
+  width: 350px;
+  height: 350px;
+  background-color: white;
+}
