@@ -29,3 +29,36 @@ npx init webpack (инициализирует Webpack и выкатывает �
 
 Попробовать запустить скрипты можно из консоли Вашего редактора, либо при наведении на них в файле package.json
 
+👍 Дополнительно
+
+npm install <название устанавливаемого пакета> установка пакета (без указания флагов --save-dev -D устанавливает его в dependencies, при наличии в devDependencies)
+npm uninstall <название устанавливаемого пакета> (удаляет выбранный пакет отовсюду)
+
+Для переноса wepback из проетка в проект Вам потребуется переносить следующие файлы 
+>> .eslintrc.json || .prettierrc.js || babel.config.js || tsconfig.json || webpack.config.json 
+> dependencies и devDependencies копируются в файл package.json  
+> script также копируются из файла в файл, в соответствующие строки
+> ### Перед этим в обязательном порядке вводится команда npm init (для создания файла package.json)
+ 
+```  
+"browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+},
+
+  "scripts": {
+    "start": "cross-env NODE_ENV=development webpack-dev-server --mode development",
+    "dev": "cross-env NODE_ENV=development webpack --mode development",
+    "build": "cross-env NODE_ENV=production webpack --mode production",
+    "deploy": "gh-pages -d dist",
+    "clean": "rd /s /q dist"
+  },
+```
