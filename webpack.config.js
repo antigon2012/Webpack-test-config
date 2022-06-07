@@ -1,6 +1,6 @@
 const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin'); // плагин для нормальной работы html формата
-const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // плагин для минимизации стилей при билде проекта
+const HtmlWebpackPlugin = require('html-webpack-plugin') // плагин для нормальной работы html формата
+const MiniCssExtractPlugin = require('mini-css-extract-plugin') // плагин для минимизации стилей при билде проекта
 
 let mode = 'development' // режим разработки приложения
 let target = 'web' // в зависимости от режима разработки применяет зависимости (например минимизация изображений)
@@ -9,7 +9,8 @@ if (process.env.NODE_ENV === 'production') {
   target = 'browserslist'
 }
 
-const plugins = [ // массив благинов (Каждый новый подключается через ключевое слово New
+const plugins = [
+  // массив благинов (Каждый новый подключается через ключевое слово New
   new HtmlWebpackPlugin({
     template: './index.html', // входная точна в приложение html
   }),
@@ -48,7 +49,8 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.ts', '.jsx', '.tsx'], // позволяет не указывать расширения данных файлов
   },
-  module: { // Объект для нормальной работы с файлами
+  module: {
+    // Объект для нормальной работы с файлами
     rules: [
       {
         test: /\.(html)$/, // файлы формата html
@@ -62,15 +64,15 @@ module.exports = {
         test: /\.(png|jpe?g|gif|svg|webp|ico)$/i,
         type: mode === 'production' ? 'asset' : 'asset/resource', // в зависимости от режима разработки склыдвает подключаемые шрифы, картинки в папку с ассетами
         generator: {
-          filename: 'assets/img/[name][ext]' // немного улучшаем структуру папок\файлов
-        }
+          filename: 'assets/img/[name][ext]', // немного улучшаем структуру папок\файлов
+        },
       },
       {
         test: /\.(woff2?|eot|ttf|otf)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'assets/font/[name][ext]' // немного улучшаем структуру папок\файлов
-        }
+          filename: 'assets/font/[name][ext]', // немного улучшаем структуру папок\файлов
+        },
       },
       {
         test: /\.(js|jsx)?$/, // обработка стандартного js + обработка файлов формата jsx (Реакт)
